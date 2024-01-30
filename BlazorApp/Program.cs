@@ -1,10 +1,12 @@
 using BlazorApp.Components;
+using ConnectFour;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddSingleton<GameState>(); // This is the game state that will be shared between all users
 
 var app = builder.Build();
 
